@@ -1,26 +1,29 @@
 package ru.kpfu.itis.dao;
 
 import ru.kpfu.itis.Utils.DatabaseConnectionUtil;
-import ru.kpfu.itis.models.Hub;
+import ru.kpfu.itis.models.Role;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class HubDaoImpl {
+public class RoleDaoImpl {
+
     private final Connection connection = DatabaseConnectionUtil.getConnection();
 
-    public Hub get(int hubId) {
+    public Role get(int roleId) {
         try {
-            String sql = "SELECT * FROM hubs WHERE hub_id = ?";
+            String sql = "SELECT * FROM roles WHERE role_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, hubId);
+            preparedStatement.setInt(1, roleId);
 
             ResultSet resultset = preparedStatement.executeQuery();
             if (resultset.next()) {
-                return new Hub(
-                        resultset.getString("Name")
+                return new Role(
+                        resultset.getString("Name"),
+                        resultset.getString("Description"),
+                        resultset.getInt("Hub_ID")
                 );
             }
             return null;
@@ -28,12 +31,14 @@ public class HubDaoImpl {
             throw new RuntimeException(ex);
         }
     }
-    public void save(Hub hub) {
-        String sql = "insert into hubs (Name)" +
-                " VALUES (?)";
+    public void save(Role role) {
+        String sql = "insert into roles (Name, Description, Hub_ID)" +
+                " VALUES (?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,hub.getName());
+            preparedStatement.setString(1,role.getName());
+            preparedStatement.setString(2,role.getDescription());
+            preparedStatement.setInt(3,role.getHubId());
             preparedStatement.executeUpdate();
         } catch (SQLException e){
             throw new RuntimeException(e);

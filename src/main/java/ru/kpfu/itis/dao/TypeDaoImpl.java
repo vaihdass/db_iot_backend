@@ -1,26 +1,28 @@
 package ru.kpfu.itis.dao;
 
 import ru.kpfu.itis.Utils.DatabaseConnectionUtil;
-import ru.kpfu.itis.models.Hub;
+import ru.kpfu.itis.models.Type;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class HubDaoImpl {
+public class TypeDaoImpl {
+
     private final Connection connection = DatabaseConnectionUtil.getConnection();
 
-    public Hub get(int hubId) {
+    public Type get(int typeId) {
         try {
-            String sql = "SELECT * FROM hubs WHERE hub_id = ?";
+            String sql = "SELECT * FROM types WHERE type_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, hubId);
+            preparedStatement.setInt(1, typeId);
 
             ResultSet resultset = preparedStatement.executeQuery();
             if (resultset.next()) {
-                return new Hub(
-                        resultset.getString("Name")
+                return new Type(
+                        resultset.getString("Name"),
+                        resultset.getString("Description")
                 );
             }
             return null;
@@ -28,12 +30,13 @@ public class HubDaoImpl {
             throw new RuntimeException(ex);
         }
     }
-    public void save(Hub hub) {
-        String sql = "insert into hubs (Name)" +
-                " VALUES (?)";
+    public void save(Type type) {
+        String sql = "insert into types (Name, Description)" +
+                " VALUES (?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,hub.getName());
+            preparedStatement.setString(1,type.getName());
+            preparedStatement.setString(2,type.getDescription());
             preparedStatement.executeUpdate();
         } catch (SQLException e){
             throw new RuntimeException(e);
