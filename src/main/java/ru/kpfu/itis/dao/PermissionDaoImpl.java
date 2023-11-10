@@ -14,7 +14,7 @@ public class PermissionDaoImpl {
 
     public Permission get(int permissionId) {
         try {
-            String sql = "SELECT * FROM permissions WHERE permission_id = ?";
+            String sql = "SELECT * FROM permissions WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, permissionId);
 
@@ -32,7 +32,7 @@ public class PermissionDaoImpl {
         }
     }
     public void save(Permission permission) {
-        String sql = "insert into permissions (Type_ID, Name, Description)" +
+        String sql = "insert into permissions (type_id, name, decription)" +
                 " VALUES (?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

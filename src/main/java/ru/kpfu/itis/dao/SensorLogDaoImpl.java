@@ -33,7 +33,7 @@ public class SensorLogDaoImpl {
         }
     }
     public void save(SensorLog sensorLog) {
-        String sql = "insert into sensor_logs (Sensor_ID, Status, Message, Data, Time)" +
+        String sql = "insert into sensor_logs (sensor_ID, status, message, data, time)" +
                 " VALUES (?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

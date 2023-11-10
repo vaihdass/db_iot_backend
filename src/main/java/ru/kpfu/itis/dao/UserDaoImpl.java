@@ -34,7 +34,7 @@ public class UserDaoImpl {
         }
     }
     public void save(User user) {
-        String sql = "insert into users (Name, Email, Phone_number, Password_hash, Password_salt)" +
+        String sql = "insert into accounts (Name, Email, Phone_number, Password_hash, Password_salt)" +
                 " VALUES (?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -51,7 +51,7 @@ public class UserDaoImpl {
     }
     public User get(String email) {
         try {
-            String sql = "SELECT * FROM users WHERE email = ?";
+            String sql = "SELECT * FROM accounts WHERE email = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, email);
 

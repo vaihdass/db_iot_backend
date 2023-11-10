@@ -13,7 +13,7 @@ public class HubDaoImpl {
 
     public Hub get(int hubId) {
         try {
-            String sql = "SELECT * FROM hubs WHERE hub_id = ?";
+            String sql = "SELECT * FROM hubs WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, hubId);
 
@@ -29,7 +29,7 @@ public class HubDaoImpl {
         }
     }
     public void save(Hub hub) {
-        String sql = "insert into hubs (Name)" +
+        String sql = "insert into hubs (name)" +
                 " VALUES (?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

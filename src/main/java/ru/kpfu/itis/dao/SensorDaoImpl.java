@@ -34,7 +34,7 @@ public class SensorDaoImpl {
         }
     }
     public void save(Sensor sensor) {
-        String sql = "insert into sensors (Hub_sensor_ID, Hub_ID ,Name, Type_ID, Date_of_entry)" +
+        String sql = "insert into sensors (hub_sensor_ID, hub_ID ,name, type_ID, date_of_entry)" +
                 " VALUES (?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

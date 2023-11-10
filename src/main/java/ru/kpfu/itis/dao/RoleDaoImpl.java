@@ -14,7 +14,7 @@ public class RoleDaoImpl {
 
     public Role get(int roleId) {
         try {
-            String sql = "SELECT * FROM roles WHERE role_id = ?";
+            String sql = "SELECT * FROM roles WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, roleId);
 
@@ -32,7 +32,7 @@ public class RoleDaoImpl {
         }
     }
     public void save(Role role) {
-        String sql = "insert into roles (Name, Description, Hub_ID)" +
+        String sql = "insert into roles (name, description, hub_ID)" +
                 " VALUES (?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

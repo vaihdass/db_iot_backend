@@ -14,7 +14,7 @@ public class TypeDaoImpl {
 
     public Type get(int typeId) {
         try {
-            String sql = "SELECT * FROM types WHERE type_id = ?";
+            String sql = "SELECT * FROM types WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, typeId);
 
@@ -31,7 +31,7 @@ public class TypeDaoImpl {
         }
     }
     public void save(Type type) {
-        String sql = "insert into types (Name, Description)" +
+        String sql = "insert into types (name, description)" +
                 " VALUES (?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

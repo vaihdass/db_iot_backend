@@ -6,6 +6,7 @@ public class SensorLog {
     private int sensorLogId;
     private int sensorId;
     private int status;
+    private String message;
     private byte[] data;
     private Timestamp time;
 
@@ -13,11 +14,20 @@ public class SensorLog {
         this.sensorLogId = sensorLogId;
     }
 
-    public SensorLog(int sensorId, int status, byte[] data, Timestamp time) {
+    public SensorLog(int sensorId, int status, String message, byte[] data, Timestamp time) {
         this.sensorId = sensorId;
         this.status = status;
+        this.message = message;
         this.data = data;
         this.time = time;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public int getSensorLogId() {
