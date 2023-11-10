@@ -21,6 +21,7 @@ public class SensorDaoImpl {
             ResultSet resultset = preparedStatement.executeQuery();
             if (resultset.next()) {
                 return new Sensor(
+                        resultset.getInt("id"),
                         resultset.getString("Hub_sensor_ID"),
                         resultset.getInt("Hub_ID"),
                         resultset.getString("Name"),

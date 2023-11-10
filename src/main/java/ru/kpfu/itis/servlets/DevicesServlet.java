@@ -1,6 +1,8 @@
 package ru.kpfu.itis.servlets;
 
+import ru.kpfu.itis.Utils.ByteArrayPropertyInfoProcessor;
 import ru.kpfu.itis.dao.HubDaoImpl;
+import ru.kpfu.itis.dao.SensorLogDaoImpl;
 import ru.kpfu.itis.deviceDto.SensorWithType;
 import ru.kpfu.itis.models.Sensor;
 
@@ -17,6 +19,7 @@ import java.util.List;
 @WebServlet("/device")
 public class DevicesServlet extends HttpServlet {
     HubDaoImpl hubDao = new HubDaoImpl();
+    SensorLogDaoImpl sensorLogDao = new SensorLogDaoImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,10 +35,12 @@ public class DevicesServlet extends HttpServlet {
 
         writer.append("<div>\n");
         for (SensorWithType sensor : sensors) {
+            byte[] info = sensorLogDao.get(sensor.getSensor().getSensorId()).getData();
+            String sensorResult = ByteArrayPropertyInfoProcessor.getProperties(info,sensor.getType().getName());
             writer.append("<div>")
                     .append("Sensor ID: ").append(String.valueOf(sensor.getSensor().getSensorId()))
                     .append(", Name: ").append(sensor.getSensor().getName())
-
+                    .append(", результат работы: ").append(sensorResult)
                     .append(", Type: ").append(sensor.getType().getName())
                     .append(", Description: ").append(sensor.getType().getDescription())
                     .append(", Date of Entry: ").append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(sensor.getSensor().getDateOfEntry()))
