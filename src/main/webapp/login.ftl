@@ -29,7 +29,7 @@
         <p></p>
         <button type="submit" class="btn btn-primary text-dark mb-3">Sign In</button>
         <p class="text-muted">
-            Do you want to create an account? Go <a href="http://localhost:8080/register" class="text-reset"> here </a>.
+            Do you want to create an account? Go <a href="http://localhost:8080/registration" class="text-reset"> here </a>.
         </p>
     </form>
 </#macro>
