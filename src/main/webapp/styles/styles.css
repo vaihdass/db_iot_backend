@@ -101,9 +101,13 @@
 :root {
     --white: #FFFFFF;
     --black: #000000;
-    --bgColor: #e6ffef;
-    --accentColor: #FF7518;
-    --lightAccentColor: #FFA559;
+    --mainColor: #D0E7D2;
+    --bgColor: #eefff5;
+    --footerColor: #B0D9B1;
+    --accentColor: #016A70;
+    --lightAccentColor: #27a6af;
+    --lighterColor: #eefff5;
+    --cardBgColor: #A7D397;
 }
 
 * {
@@ -143,25 +147,42 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: rebeccapurple;
+    background: var(--bgColor);
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
 }
 
 header {
-    background: darkgrey;
+    background: var(--bgColor);
     min-height: 60px;
-    padding: 8px 48px;
+    padding: 24px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header h1 {
     text-align: left;
     color: var(--accentColor);
+    letter-spacing: 2px;
+    display: inline-block;
+    font-family: monospace, 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 3.4em;
+    margin: 0 24px;
+}
+
+header small {
+    margin: 12px 2px;
+    color: var(--accentColor);
+    font-size: 0.95em;
+    font-weight: bold;
+    font-family: monospace, 'Roboto', sans-serif;
 }
 
 main {
-    background: cyan;
+    background: var(--mainColor);
     max-width: 94%;
     margin: 24px auto;
     border-radius: 20px;
@@ -169,22 +190,126 @@ main {
 }
 
 footer {
-    background: yellowgreen;
-    letter-spacing: 1px;
-    font-size: 0.9em;
+    background: var(--footerColor);
+    letter-spacing: 2px;
+    font-size: 1.1em;
     text-transform: uppercase;
     font-family: monospace, 'Roboto', sans-serif;
     text-align: center;
     min-height: 40px;
     padding: 16px 0;
+    font-weight: 700;
 }
 
 a {
     text-decoration: none;
     color: var(--accentColor);
-    font-weight: bold;
+
 }
 
 a:hover {
     color: var(--lightAccentColor);
+}
+
+.login__link {
+    font-size: 1.2em;
+    text-transform: capitalize;
+    font-family: monospace, Roboto, sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin: 8px 12px;
+}
+
+.login__link__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select__label {
+    color: var(--accentColor);
+    font-family: monospace, Roboto, sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.select__container {
+    display: flex;
+    justify-content: center;
+}
+
+.select__container > * {
+    margin: 12px 8px;
+}
+
+.select__container button {
+    padding: 8px 12px;
+    border-radius: 15px;
+    outline: none;
+    color: var(--accentColor);
+    font-size: 0.85em;
+    font-family: Roboto, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 900;
+    text-transform: uppercase;
+    box-shadow: none;
+    border: 2px solid var(--accentColor);
+    background: var(--lighterColor);
+}
+
+.select__container button:hover {
+    background-color: var(--white);
+}
+
+.cards__container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.card__item {
+    width: 48%;
+    margin: 16px 8px;
+    background: var(--cardBgColor);
+    flex-wrap: wrap;
+    padding: 16px 24px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card__item hr {
+    color: var(--accentColor);
+}
+
+.card__title {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--accentColor);
+    font-size: 1.2em;
+    font-family: monospace, Roboto, sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.card__props {
+    font-family: Roboto, sans-serif;
+}
+
+.card__props__key {
+    color: darkgreen;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: monospace, Roboto, sans-serif;
+    font-size: 1.1em;
+}
+
+.card__props__value {
+    color: var(--lighterColor);
+    font-family: Roboto, sans-serif;
+    font-size: 1.2em;
 }

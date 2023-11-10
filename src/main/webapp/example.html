@@ -22,24 +22,29 @@
 <div>
 <header>
     <h1>IOT</h1>
+    <small>&laquo;Connect Smart. Control Easy.&raquo;</small>
 </header>
 
 <main>
     <div id="content" class="content-class">
-        <div class="cards__container">
-            <div class="card__item">
-                <span class="card__title"></span>
-                <hr>
-
-            </div>
+        <div class="login__link__container">
+            <a class="login__link" href="/registration">Зарегистрироваться</a>
+            <span>|</span>
+            <a class="login__link" href="/login">Залогиниться</a><br>
         </div>
-        Content<br>
-        Content<br>
-        Content<br>
-        Content<br>
-        Content<br>
-        Content<br>
-        Content<br>
+        <div class="cards__container">
+
+        </div>
+        <div class="select__container">
+            <span class="select__label">Выберите хаб:</span>
+            <select id="hub">
+                <option value="HUB1">-</option>
+                <option value="HUB1">HUB1</option>
+                <option value="HUB1">HUB1</option>
+            </select>
+            <button id="hub_btn">Получить</button>
+        </div>
+        <div id="data"></div>
     </div>
 </main>
 </div>

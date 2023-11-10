@@ -38,6 +38,7 @@ public class DevicesServlet extends HttpServlet {
         resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();
 
+        writer.append("[");
         for (SensorWithType sensor : sensors) {
             SensorLog sensorLog = sensorLogDao.getLastLog(sensor.getSensor().getSensorId());
             byte[] info = sensorLog.getData();
@@ -56,8 +57,9 @@ public class DevicesServlet extends HttpServlet {
                     new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(sensor.getSensor().getDateOfEntry()),
                     date
             ));
-            writer.println(json);
+            writer.append(json + ",");
         }
+        writer.append("]");
     }
 
 }

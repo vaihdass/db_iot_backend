@@ -9,18 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9307fce8-6785-4a71-8ee5-a39965b5fbe3" name="Changes" comment="ome commit">
+    <list default="true" id="9307fce8-6785-4a71-8ee5-a39965b5fbe3" name="Changes" comment="Fix device logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/Utils/ByteArrayPropertyInfoProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/Utils/ByteArrayPropertyInfoProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/dao/HubDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/dao/HubDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/dao/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/models/Hub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/models/Hub.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/servlets/DevicesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/servlets/DevicesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/servlets/HubsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/servlets/HubsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/servlets/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/example.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/home.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +185,10 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Generator" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.80" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Generator" />
@@ -305,11 +304,30 @@
       <option name="project" value="LOCAL" />
       <updated>1699635249978</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fix device logic">
+      <option name="closed" value="true" />
+      <created>1699644732217</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699644732217</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="для Ксюши" />
@@ -320,7 +338,8 @@
     <MESSAGE value="???" />
     <MESSAGE value="com" />
     <MESSAGE value="ome commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="ome commit" />
+    <MESSAGE value="Fix device logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix device logic" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
