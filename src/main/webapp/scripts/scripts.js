@@ -1,5 +1,5 @@
 $('document').ready(function () {
-    $.get('/home', function (response) {
+    $.get('/hubs', function (response) {
         $('#hub').html(response)
     })
 
