@@ -14,7 +14,7 @@ public class UserHubRoleDaoImpl {
 
     public UserHubRole get(int userId) {
         try {
-            String sql = "SELECT * FROM user_hub_role WHERE user_id = ?";
+            String sql = "SELECT * FROM account_hub_role WHERE account_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, userId);
 
@@ -51,7 +51,7 @@ public class UserHubRoleDaoImpl {
         }
     }
     public void save(UserHubRole userHubRole) {
-        String sql = "insert into user_hub_role (Hub_ID, User_ID, Role_ID)" +
+        String sql = "insert into account_hub_role (hub_ID, account_id, role_ID)" +
                 " VALUES (?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
