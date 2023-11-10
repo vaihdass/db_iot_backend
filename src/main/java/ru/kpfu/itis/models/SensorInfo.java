@@ -10,14 +10,24 @@ public class SensorInfo {
     private String typeName;
     private String typeDescription;
     private String dateOfEntry;
+    private String dateOfEdit;
 
-    public SensorInfo(String id, String name, String result, String typeName, String typeDescription, String dateOfEntry) {
+    public SensorInfo(String id, String name, String result, String typeName, String typeDescription, String dateOfEntry, String dateOfEdit) {
         this.id = id;
         this.name = name;
         this.result = result;
         this.typeName = typeName;
         this.typeDescription = typeDescription;
         this.dateOfEntry = dateOfEntry;
+        this.dateOfEdit = dateOfEdit;
+    }
+
+    public String getDateOfEdit() {
+        return dateOfEdit;
+    }
+
+    public void setDateOfEdit(String dateOfEdit) {
+        this.dateOfEdit = dateOfEdit;
     }
 
     public String getId() {
@@ -66,5 +76,18 @@ public class SensorInfo {
 
     public void setDateOfEntry(String dateOfEntry) {
         this.dateOfEntry = dateOfEntry;
+    }
+
+    @Override
+    public String toString() {
+        return "SensorInfo{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", result='" + result + '\'' +
+                ", typeName='" + typeName + '\'' +
+                ", typeDescription='" + typeDescription + '\'' +
+                ", dateOfEntry='" + dateOfEntry + '\'' +
+                ", dateOfEdit='" + dateOfEdit + '\'' +
+                '}';
     }
 }
