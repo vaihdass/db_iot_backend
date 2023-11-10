@@ -11,9 +11,9 @@ import java.sql.SQLException;
 public class SensorLogDaoImpl {
     private final Connection connection = DatabaseConnectionUtil.getConnection();
 
-    public SensorLog get(int sensorId) {
+    public SensorLog getLastLog(int sensorId) {
         try {
-            String sql = "SELECT * FROM sensor_logs WHERE sensor_id = ?";
+            String sql = "SELECT * FROM sensor_logs WHERE sensor_id = ? ORDER BY time DESC";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, sensorId);
 
@@ -47,5 +47,21 @@ public class SensorLogDaoImpl {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void update(SensorLog sensorLog) {
+        String sql = "update sensor_logs where sensor_id = ? set status = ?, message = ?, data = ?, time = ?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setInt(1, sensorLog.getSensorId());
+            preparedStatement.setInt(2, sensorLog.getStatus());
+            preparedStatement.setString(3, sensorLog.getMessage());
+            preparedStatement.setBytes(4, sensorLog.getData());
+            preparedStatement.setTimestamp(5, sensorLog.getTime());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
