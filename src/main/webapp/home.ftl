@@ -13,11 +13,10 @@
     <a href="/registration">Зарегистрироваться</a>
     <a href="/login">Залогиниться</a> <br>
 </#if>
-Выберите хаб:
-<select id="hub">
-</select>
-<button id="hub_button">Подтвердить</button>
-<div id="data"></div>
+    <span>Выберите хаб:</span>
+    <select id="hub"></select>
+    <button id="hub_btn">Получить</button>
+    <div id="data"></div>
 </#macro>
 </body>
 </html>

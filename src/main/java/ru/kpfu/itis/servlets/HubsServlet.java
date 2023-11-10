@@ -19,7 +19,7 @@ public class HubsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
-        if (session != null && session.getAttribute("id") != null) {
+        if (session != null && session.getAttribute("userId") != null) {
             List<Hub> hubs = hubDao.getByUserId((Integer) req.getSession(false).getAttribute("userId"));
 
             resp.setCharacterEncoding("UTF-8");

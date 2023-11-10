@@ -58,12 +58,12 @@ public class UserDaoImpl {
             ResultSet resultset = preparedStatement.executeQuery();
             if (resultset.next()) {
                 return new User(
-                        resultset.getInt("ID"),
-                        resultset.getString("Name"),
-                        resultset.getString("Email"),
-                        resultset.getString("Phone_number"),
-                        resultset.getString("Password_hash"),
-                        resultset.getString("Password_salt")
+                        resultset.getInt("id"),
+                        resultset.getString("name"),
+                        resultset.getString("email"),
+                        resultset.getString("phone_number"),
+                        resultset.getString("password_hash"),
+                        resultset.getString("password_salt")
                 );
             }
             return null;

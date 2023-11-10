@@ -1,5 +1,6 @@
 package ru.kpfu.itis.servlets;
 
+import ru.kpfu.itis.Utils.PasswordUtil;
 import ru.kpfu.itis.dao.UserDaoImpl;
 import ru.kpfu.itis.models.User;
 
@@ -37,11 +38,11 @@ public class LoginServlet extends HttpServlet {
         User user = userDao.get(email);
 
         HttpSession session = req.getSession(false);
-
-        if (Objects.equals(user.getPassword(), password)){
+        System.out.println(password);
+        if (Objects.equals(user.getPassword(), PasswordUtil.encrypt(password))){
             session.setAttribute("userId",user.getUserId());
             session.setAttribute("email",email);
-            resp.sendRedirect("/main");
+            resp.sendRedirect("/home");
         } else {
             resp.sendRedirect("/home");
         }

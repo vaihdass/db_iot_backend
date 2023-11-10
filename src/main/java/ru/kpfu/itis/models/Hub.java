@@ -4,7 +4,8 @@ public class Hub {
     private int hubId;
     private String name;
 
-    public Hub(String name) {
+    public Hub(int hubId, String name) {
+        this.hubId = hubId;
         this.name = name;
     }
 
