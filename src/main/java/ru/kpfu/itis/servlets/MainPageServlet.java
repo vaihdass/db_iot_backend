@@ -27,6 +27,6 @@ public class MainPageServlet extends HttpServlet {
                 resp.getWriter().print("<option value=\'" + hub.getHubId() + "\'>" + hub.getName() + "</option>");
             }
         }
-        req.getRequestDispatcher("/home.html").forward(req,resp);
+        req.getRequestDispatcher("/home.ftl").forward(req,resp);
     }
 }

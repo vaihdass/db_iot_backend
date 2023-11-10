@@ -34,7 +34,7 @@ public class UserDaoImpl {
         }
     }
     public void save(User user) {
-        String sql = "insert into accounts (Name, Email, Phone_number, Password_hash, Password_salt)" +
+        String sql = "insert into accounts (name, email, phone_number, password_hash, password_salt)" +
                 " VALUES (?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

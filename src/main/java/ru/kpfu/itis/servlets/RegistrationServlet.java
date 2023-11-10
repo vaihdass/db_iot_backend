@@ -24,12 +24,12 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        String name = req.getParameter("name");
-
-        User newUser = new User(0,name,email,null, PasswordUtil.encrypt(password),null); // допустим сделали соли
+        String name = req.getParameter("username");
+        String phoneNumber = req.getParameter("phoneNumber");
+        User newUser = new User(0,name,email,phoneNumber, PasswordUtil.encrypt(password),"salt"); // допустим сделали соли
 
         userDao.save(newUser);
 
-        resp.sendRedirect("/main");
+        resp.sendRedirect("/home");
     }
 }

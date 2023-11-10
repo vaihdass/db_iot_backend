@@ -7,8 +7,10 @@
     <script src="scripts/scripts.js"></script>
 </head>
 <body>
-<a href="/registration">Зарегистрироваться</a>
-<a href="/login">Залогиниться</a> <br>
+<#if isLoggedIn == false>
+    <a href="/registration">Зарегистрироваться</a>
+    <a href="/login">Залогиниться</a> <br>
+</#if>
 Выберите хаб:
 <select id="hub">
 </select>

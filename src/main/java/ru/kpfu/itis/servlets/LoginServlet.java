@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("email",email);
             resp.sendRedirect("/main");
         } else {
-            resp.sendRedirect("/login");
+            resp.sendRedirect("/home");
         }
     }
 }
