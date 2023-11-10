@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class HubDaoImpl {
+public class HubDaoImpl implements HubDao{
     private final Connection connection = DatabaseConnectionUtil.getConnection();
 
     public Hub get(int hubId) {
