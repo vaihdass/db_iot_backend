@@ -11,11 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9307fce8-6785-4a71-8ee5-a39965b5fbe3" name="Changes" comment="Fix device logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/Utils/DatabaseConnectionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/Utils/DatabaseConnectionUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/servlets/DevicesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/servlets/DevicesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/example.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,6 +204,7 @@
       <workItem from="1699609852427" duration="11857000" />
       <workItem from="1699625532746" duration="10000" />
       <workItem from="1699628299085" duration="13775000" />
+      <workItem from="1699649834535" duration="47000" />
     </task>
     <task id="LOCAL-00001" summary="для Ксюши">
       <option name="closed" value="true" />
@@ -312,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699644732217</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fix device logic">
+      <option name="closed" value="true" />
+      <created>1699649218348</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699649218348</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
