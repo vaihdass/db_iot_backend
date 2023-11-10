@@ -18,7 +18,7 @@ public class MainPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HubDao hubDao = new HubDaoImpl();
 
-        List<Hub> hubs = hubDao.getByUserId(req.getSession(false).getAttribute("userId"));
+        List<Hub> hubs = hubDao.getByUserId((Integer) req.getSession(false).getAttribute("userId"));
 
         resp.setCharacterEncoding("UTF-8");
         for (Hub hub : hubs) {

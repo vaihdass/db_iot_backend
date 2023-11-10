@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
 
         if (Objects.equals(user.getPassword(), password)){
-            session.setAttribute("id",user.getUserId());
+            session.setAttribute("userId",user.getUserId());
             session.setAttribute("email",email);
             resp.sendRedirect("/main");
         } else {

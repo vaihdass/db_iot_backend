@@ -15,13 +15,15 @@ public class Sensor {
         this.sensorId = sensorId;
     }
 
-    public Sensor(String hubSensorId, int hubId, String name, int typeId, Timestamp dateOfEntry) {
+    public Sensor(int sensorId, String hubSensorId, int hubId, String name, int typeId, Timestamp dateOfEntry) {
+        this.sensorId = sensorId;
         this.hubSensorId = hubSensorId;
         this.hubId = hubId;
         this.name = name;
         this.typeId = typeId;
         this.dateOfEntry = dateOfEntry;
     }
+
 
     public int getSensorId() {
         return sensorId;

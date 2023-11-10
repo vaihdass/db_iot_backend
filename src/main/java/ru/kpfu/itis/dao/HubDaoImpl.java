@@ -1,12 +1,17 @@
 package ru.kpfu.itis.dao;
 
 import ru.kpfu.itis.Utils.DatabaseConnectionUtil;
+import ru.kpfu.itis.deviceDto.SensorWithType;
 import ru.kpfu.itis.models.Hub;
+import ru.kpfu.itis.models.Sensor;
+import ru.kpfu.itis.models.Type;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HubDaoImpl implements HubDao{
     private final Connection connection = DatabaseConnectionUtil.getConnection();
@@ -39,5 +44,39 @@ public class HubDaoImpl implements HubDao{
             throw new RuntimeException(e);
         }
 
+    }
+    public List<SensorWithType> getSensorsByHubId(int hubId) {
+        List<SensorWithType> sensorsWithTypes = new ArrayList<>();
+        String sql = "SELECT s.id, s.id, s.id, s.name, s.id, s.date_of_entry, " +
+                "t.id, t.name AS typeName, t.description " +
+                "FROM SENSORS s " +
+                "JOIN TYPES t ON s.type_id = t.id " +
+                "WHERE s.hub_id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, hubId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Type type = new Type(
+                            resultSet.getInt("typeId"),
+                            resultSet.getString("typeName"),
+                            resultSet.getString("description")
+                    );
+                    Sensor sensor = new Sensor(
+                            resultSet.getInt("sensorId"),
+                            resultSet.getString("hubSensorId"),
+                            resultSet.getInt("hubId"),
+                            resultSet.getString("name"),
+                            resultSet.getInt("typeId"),
+                            resultSet.getTimestamp("dateOfEntry")
+                    );
+                    SensorWithType sensorWithType = new SensorWithType(sensor, type);
+                    sensorsWithTypes.add(sensorWithType);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return sensorsWithTypes;
     }
 }

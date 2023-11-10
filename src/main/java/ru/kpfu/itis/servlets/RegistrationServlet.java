@@ -1,5 +1,6 @@
 package ru.kpfu.itis.servlets;
 
+import ru.kpfu.itis.Utils.PasswordUtil;
 import ru.kpfu.itis.dao.UserDaoImpl;
 import ru.kpfu.itis.models.User;
 
@@ -25,7 +26,7 @@ public class RegistrationServlet extends HttpServlet {
         String password = req.getParameter("password");
         String name = req.getParameter("name");
 
-        User newUser = new User(0,name,email,null,password,null); // допустим сделали соли
+        User newUser = new User(0,name,email,null, PasswordUtil.encrypt(password),null); // допустим сделали соли
 
         userDao.save(newUser);
 

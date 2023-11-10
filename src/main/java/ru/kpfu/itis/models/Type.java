@@ -14,6 +14,12 @@ public class Type {
         this.description = description;
     }
 
+    public Type(int typeId, String name, String description) {
+        this.typeId = typeId;
+        this.name = name;
+        this.description = description;
+    }
+
     public int getTypeId() {
         return typeId;
     }
