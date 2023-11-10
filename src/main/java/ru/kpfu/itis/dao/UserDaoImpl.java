@@ -49,4 +49,26 @@ public class UserDaoImpl {
         }
 
     }
+    public User get(String email) {
+        try {
+            String sql = "SELECT * FROM users WHERE email = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, email);
+
+            ResultSet resultset = preparedStatement.executeQuery();
+            if (resultset.next()) {
+                return new User(
+                        resultset.getInt("ID"),
+                        resultset.getString("Name"),
+                        resultset.getString("Email"),
+                        resultset.getString("Phone_number"),
+                        resultset.getString("Password_hash"),
+                        resultset.getString("Password_salt")
+                );
+            }
+            return null;
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 }
