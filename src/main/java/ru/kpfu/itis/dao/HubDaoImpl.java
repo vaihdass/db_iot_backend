@@ -79,4 +79,28 @@ public class HubDaoImpl implements HubDao{
         }
         return sensorsWithTypes;
     }
+    @Override
+    public List<Hub> getByUserId(Integer userId) {
+        String sql = "select * from account_hub where account_id = ?";
+
+        List<Integer> hubIds = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setInt(1, userId);
+            try (ResultSet resultSet = preparedStatement.executeQuery()){
+                while (resultSet.next()) {
+                    hubIds.add(resultSet.getInt(2));
+                }
+            }
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+        List<Hub> hubs = new ArrayList<>();
+
+        for (Integer hubId : hubIds) {
+            hubs.add(get(hubId));
+        }
+        return hubs;
+    }
 }
