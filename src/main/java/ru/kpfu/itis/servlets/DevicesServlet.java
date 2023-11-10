@@ -35,7 +35,7 @@ public class DevicesServlet extends HttpServlet {
 
         writer.append("<div>\n");
         for (SensorWithType sensor : sensors) {
-            byte[] info = sensorLogDao.get(sensor.getSensor().getSensorId()).getData();
+            byte[] info = sensorLogDao.getLastLog(sensor.getSensor().getSensorId()).getData();
             String sensorResult = ByteArrayPropertyInfoProcessor.getProperties(info,sensor.getType().getName());
             writer.append("<div>")
                     .append("Sensor ID: ").append(String.valueOf(sensor.getSensor().getSensorId()))

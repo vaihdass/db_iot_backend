@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class DatabaseConnectionUtil {
     private static Connection connection;
     public static final String DRIVER = "org.postgresql.Driver";
-    public static final String URL = "jdbc:postgresql://localhost:5432/Hakaton";
-    public static final String USER = "test";
-    public static final String PASSWORD = "test";
+    public static final String URL = "jdbc:postgresql://localhost:5432/smart_home";
+    public static final String USER = "postgres";
+    public static final String PASSWORD = "qwerty1234";
     public static Connection getConnection() {
         if (connection == null) {
             try {

@@ -47,7 +47,8 @@ public class HubDaoImpl implements HubDao{
     }
     public List<SensorWithType> getSensorsByHubId(int hubId) {
         List<SensorWithType> sensorsWithTypes = new ArrayList<>();
-        String sql = "SELECT s.id, s.id, s.id, s.name, s.id, s.date_of_entry, " +
+
+        String sql = "SELECT s.id, s.hub_sensor_id, s.hub_id, s.name , s.type_id, s.date_of_entry, " +
                 "t.id, t.name AS typeName, t.description " +
                 "FROM SENSORS s " +
                 "JOIN TYPES t ON s.type_id = t.id " +
@@ -58,17 +59,17 @@ public class HubDaoImpl implements HubDao{
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 while (resultSet.next()) {
                     Type type = new Type(
-                            resultSet.getInt("typeId"),
-                            resultSet.getString("typeName"),
+                            resultSet.getInt("id"),
+                            resultSet.getString("name"),
                             resultSet.getString("description")
                     );
                     Sensor sensor = new Sensor(
-                            resultSet.getInt("sensorId"),
-                            resultSet.getString("hubSensorId"),
-                            resultSet.getInt("hubId"),
+                            resultSet.getInt("id"),
+                            resultSet.getString("hub_sensor_id"),
+                            resultSet.getInt("hub_id"),
                             resultSet.getString("name"),
-                            resultSet.getInt("typeId"),
-                            resultSet.getTimestamp("dateOfEntry")
+                            resultSet.getInt("type_id"),
+                            resultSet.getTimestamp("date_of_entry")
                     );
                     SensorWithType sensorWithType = new SensorWithType(sensor, type);
                     sensorsWithTypes.add(sensorWithType);

@@ -50,14 +50,14 @@ public class SensorLogDaoImpl {
     }
 
     public void update(SensorLog sensorLog) {
-        String sql = "update sensor_logs where sensor_id = ? set status = ?, message = ?, data = ?, time = ?";
+        String sql = "update sensor_logs set status = ?, message = ?, data = ?, time = ? where sensor_id = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
-            preparedStatement.setInt(1, sensorLog.getSensorId());
-            preparedStatement.setInt(2, sensorLog.getStatus());
-            preparedStatement.setString(3, sensorLog.getMessage());
-            preparedStatement.setBytes(4, sensorLog.getData());
-            preparedStatement.setTimestamp(5, sensorLog.getTime());
+            preparedStatement.setInt(1, sensorLog.getStatus());
+            preparedStatement.setString(2, sensorLog.getMessage());
+            preparedStatement.setBytes(3, sensorLog.getData());
+            preparedStatement.setTimestamp(4, sensorLog.getTime());
+            preparedStatement.setInt(5, sensorLog.getSensorId());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
