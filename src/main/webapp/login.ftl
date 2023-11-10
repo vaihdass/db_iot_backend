@@ -21,6 +21,7 @@
             </div>
         </div>
         <div class="form-group">
+<#--            если неправильный логин/пароль-->
             <#if incorrect??>
                 <p class="text-danger">Wrong password or username</p>
             </#if>
