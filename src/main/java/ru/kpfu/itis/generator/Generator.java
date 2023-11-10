@@ -42,14 +42,14 @@ public class Generator {
     public static void update(SensorLog sensorLog, Integer typeId) {
         if (typeId == 1) {
             Random random = new Random();
-            int randomInt = random.nextInt(-1, 3);
+            int randomInt = random.nextInt(-1, 2);
             sensorLog.setStatus(randomInt);
             if (randomInt == -1) sensorLog.setMessage("Ошибка");
             if (randomInt == 0) sensorLog.setMessage("Жалюзи / шторы закртыты");
             if (randomInt == 1) sensorLog.setMessage("Жалюзи / шторы открыты");
         } else if (typeId == 2){
             Random random = new Random();
-            int randomInt = random.nextInt(-1, 3);
+            int randomInt = random.nextInt(-1, 2);
             sensorLog.setStatus(randomInt);
             if (randomInt == -1) sensorLog.setMessage("Ошибка");
             if (randomInt == 0) sensorLog.setMessage("Движение не обнаружено");
@@ -69,21 +69,21 @@ public class Generator {
             sensorLog.setData(("{'color':'"+ color + "', 'intensivity','" + intensity + "'}").getBytes());
         } else if (typeId == 4) {
             Random random = new Random();
-            int randomInt = random.nextInt(-1, 3);
+            int randomInt = random.nextInt(-1, 2);
             sensorLog.setStatus(randomInt);
             if (randomInt == -1) sensorLog.setMessage("Ошибка");
             if (randomInt == 0) sensorLog.setMessage("Протечка обнаружена");
             if (randomInt == 1) sensorLog.setMessage("Протечка не обнаружена");
         } else if (typeId == 5) {
             Random random = new Random();
-            int randomInt = random.nextInt(-1, 3);
+            int randomInt = random.nextInt(-1, 2);
             sensorLog.setStatus(randomInt);
             if (randomInt == -1) sensorLog.setMessage("Ошибка");
             if (randomInt == 0) sensorLog.setMessage("Дверь/окно закрыто.");
             if (randomInt == 1) sensorLog.setMessage("Дверь/окно открыто.");
         } else if (typeId == 6) {
             Random random = new Random();
-            int randomInt = random.nextInt(-1, 3);
+            int randomInt = random.nextInt(-1, 2);
             sensorLog.setStatus(randomInt);
             if (randomInt == -1) sensorLog.setMessage("Ошибка");
             if (randomInt == 0) sensorLog.setMessage("Задымление обнаружено.");
