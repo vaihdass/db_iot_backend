@@ -27,6 +27,7 @@ public class Generator {
             sensorLogs.add(sensorLogDao.getLastLog(sensor.getSensor().getSensorId()));
         }
 
+
         while (true) {
             int i = 0;
             for (SensorLog sensorLog : sensorLogs) {
@@ -65,7 +66,7 @@ public class Generator {
 
             int intensity = random.nextInt(0, 101);
 
-            sensorLog.setMessage("{'color':'"+ color + "', 'intensivity','" + intensity + "'}");
+            sensorLog.setData(("{'color':'"+ color + "', 'intensivity','" + intensity + "'}").getBytes());
         } else if (typeId == 4) {
             Random random = new Random();
             int randomInt = random.nextInt(-1, 3);

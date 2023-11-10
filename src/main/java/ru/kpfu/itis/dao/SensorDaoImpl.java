@@ -2,7 +2,6 @@ package ru.kpfu.itis.dao;
 
 import ru.kpfu.itis.Utils.DatabaseConnectionUtil;
 import ru.kpfu.itis.models.Sensor;
-import ru.kpfu.itis.models.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
