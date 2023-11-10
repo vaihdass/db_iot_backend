@@ -1,11 +1,9 @@
 package ru.kpfu.itis.servlets;
 
 import com.google.gson.Gson;
-import ru.kpfu.itis.Utils.ByteArrayPropertyInfoProcessor;
 import ru.kpfu.itis.dao.HubDaoImpl;
 import ru.kpfu.itis.dao.SensorLogDaoImpl;
 import ru.kpfu.itis.deviceDto.SensorWithType;
-import ru.kpfu.itis.models.Sensor;
 import ru.kpfu.itis.models.SensorInfo;
 import ru.kpfu.itis.models.SensorLog;
 
@@ -16,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -41,10 +40,10 @@ public class DevicesServlet extends HttpServlet {
         for (SensorWithType sensor : sensors) {
             SensorLog sensorLog = sensorLogDao.getLastLog(sensor.getSensor().getSensorId());
             byte[] info = sensorLog.getData();
-            info = info == null ? String.valueOf(sensorLog.getStatus()).getBytes() : info;
+            info = info == null ? sensorLog.getMessage().getBytes() : info;
             String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(sensorLogDao
                     .getLastLog(sensor.getSensor().getSensorId()).getTime());
-            String sensorResult = ByteArrayPropertyInfoProcessor.getProperties(info, sensor.getType().getName());
+            String sensorResult = new String(info, StandardCharsets.UTF_8);
 
             Gson gson = new Gson();
             String json = gson.toJson(new SensorInfo(
